@@ -16,11 +16,11 @@ const Login = () => {
           <img src= {`${Loginimage}`} className='object-cover h-[600px] absolute top-[-90px]' />
         </div>
     </div>
-    
+
     {/* Right side - LOGIN FORM */}
     <div className='flex justify-start items-center bg-center w-[50%]'>
-      <div className="w-[550px] h-[400px] rounded-[40px] p-5 bg-white/10 backdrop-blur-md text-white flex flex-col items-center justify-center">
-      <h2 className="text-3xl font-bold text-center text-[#AC72A1] mb-8">Login</h2>
+      <div className="w-[550px] h-[400px] rounded-[40px] p-3 bg-white/10 backdrop-blur-md flex flex-col items-center justify-center">
+      <h2 className="text-3xl font-bold text-center bg-gradient-to-b from-[#AC72A1] to-[#070E2A] text-transparent bg-clip-text mb-8">Login</h2>
 
       {/* Email */}
       <div className="w-[60%] relative mb-6">
@@ -44,13 +44,13 @@ const Login = () => {
       </div>
 
       {/* Button */}
-      <button className="w-[60%] bg-gradient-to-r from-[#AC72A1] to-[#070E2A] 
-      py-3 rounded-full hover:opacity-90 transition">
+      <button className="w-[60%] bg-gradient-to-t from-[#070E2A] to-[#AC72A1] 
+      py-2 rounded-full hover:opacity-90 transition">
         Login
       </button>
 
       {/* Links */}
-      <div className="w-[60%] flex justify-between mt-6 text-sm text-white/80">
+      <div className="w-[60%] flex justify-between mt-10 text-sm text-white/80">
         <a href="#" className="hover:underline text-[#070E2A]">Create an account</a>
         <a href="#" className="hover:underline text-[#070E2A]">Forgot password?</a>
       </div>
