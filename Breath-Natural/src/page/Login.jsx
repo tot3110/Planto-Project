@@ -1,5 +1,5 @@
 import React from 'react';
-import Loginimage from '../assets/Image 2.png';
+import Loginimage from '../assets/Image123.jpg';
 import { FaLock } from 'react-icons/fa';
 import { FaEnvelope } from 'react-icons/fa';
 
@@ -12,11 +12,11 @@ const Login = () => {
           
     {/* Left side - IMAGE */}
     <div className="flex justify-end items-center bg-center w-[50%]">
-        <div className='w-[550px] h-[500px] relative rounded-[40px] bg-[#000000]'>
-          <img src= {`${Loginimage}`} className='object-cover h-[600px] absolute top-[-80px]' />
+        <div className='w-[550px] h-[500px] relative rounded-[40px] bg-[#000000] overflow-hidden'>
+          <img src= {`${Loginimage}`} className='object-cover h-[600px] absolute top-[-90px]' />
         </div>
     </div>
-
+    
     {/* Right side - LOGIN FORM */}
     <div className='flex justify-start items-center bg-center w-[50%]'>
       <div className="w-[550px] h-[400px] rounded-[40px] p-5 bg-white/10 backdrop-blur-md text-white flex flex-col items-center justify-center">
