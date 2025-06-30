@@ -11,15 +11,8 @@ const Login = () => {
     {/* Wrapper for both sides */}
     <div className="flex w-full h-full">
           
-    {/* Left side - IMAGE */}
-    <div className="flex justify-end items-center bg-center w-[50%]">
-        <div className='w-[550px] h-[500px] relative rounded-[40px] bg-[#000000] overflow-hidden'>
-          <img src= {`${SignupImage}`} className='object-cover h-[600px] absolute top-[-90px]' />
-        </div>
-    </div>
-
-    {/* Right side - LOGIN FORM */}
-    <div className='flex justify-start items-center bg-center w-[50%]'>
+    {/* Left side - LOGIN FORM */}
+    <div className='flex justify-end items-center bg-center w-[50%]'>
       <div className="w-[550px] h-[400px] rounded-[40px] p-3 bg-white/10 backdrop-blur-md flex flex-col items-center justify-center">
       <h2 className="text-3xl font-bold text-center bg-gradient-to-b
        from-[#AC72A1] to-[#070E2A] text-transparent bg-clip-text mb-8">Signup</h2>
@@ -67,6 +60,14 @@ const Login = () => {
       </div>
     </div>
     </div>
+
+    {/* Right side - IMAGE */}
+    <div className="flex justify-start items-center bg-center w-[50%]">
+        <div className='w-[550px] h-[500px] relative rounded-[40px] bg-[#000000] overflow-hidden'>
+          <img src= {`${SignupImage}`} className='object-cover h-[600px] absolute top-[-90px]' />
+        </div>
+    </div>
+
     </div>
     </div>
 );

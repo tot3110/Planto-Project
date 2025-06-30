@@ -9,7 +9,5 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
   
     <App />
-    <Login/>
-    <Signup />
   </StrictMode>,
 )
