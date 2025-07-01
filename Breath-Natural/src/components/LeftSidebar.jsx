@@ -20,9 +20,9 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-64 h-screen bg-[#242e24] text-white flex flex-col justify-between">
+    <div className="w-[20%] h-screen bg-[#242e24] text-white flex flex-col justify-between">
       <div>
-        <div className="p-6 font-bold text-xl">My App</div>
+        <div className="p-6 font-bold text-xl">Breath Natural</div>
 
         <nav className="flex flex-col space-y-2 px-4">
           {menu.map((item) => (
@@ -31,7 +31,7 @@ const Sidebar = () => {
               key={item.path}
               className={({ isActive }) =>
                 `flex items-center gap-3 p-2 rounded-md transition-all ${
-                  isActive ? "bg-pink-700 text-white font-semibold" : "text-gray-400 hover:text-white hover:bg-gray-800"
+                  isActive ? "bg-green-700 text-white font-semibold" : "text-gray-400 hover:text-white hover:bg-gray-800"
                 }`
               }
             >
@@ -49,7 +49,7 @@ const Sidebar = () => {
             key={item.path}
             className={({ isActive }) =>
               `flex items-center gap-3 p-2 rounded-md transition-all ${
-                isActive ? "bg-pink-700 text-white font-semibold" : "text-gray-400 hover:text-white hover:bg-gray-800"
+                isActive ? "bg-green-700 text-white font-semibold" : "text-gray-400 hover:text-white hover:bg-gray-800"
               }`
             }
           >
