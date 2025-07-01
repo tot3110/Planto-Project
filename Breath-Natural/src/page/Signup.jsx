@@ -3,6 +3,9 @@ import SignupImage from '../assets/Image123.jpg';
 import { FaLock } from 'react-icons/fa';
 import { FaEnvelope } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa';
+import { Link } from "react-router-dom";
+
+
 
 const Login = () => {
   return (
@@ -51,12 +54,12 @@ const Login = () => {
       {/* Button */}
       <button className="w-[60%] bg-gradient-to-t from-[#070E2A] to-[#AC72A1] 
       py-2 rounded-full hover:opacity-90 transition">
-        Login
+        Signin
       </button>
 
       {/* Links */}
       <div className="w-[60%] flex justify-end mt-4 text-sm text-white/80">
-        <a href="#" className="hover:underline text-[#070E2A]">Already have an account?</a>
+        <Link to="/" className="hover:underline text-[#070E2A]">Already have an account?</Link>
       </div>
     </div>
     </div>

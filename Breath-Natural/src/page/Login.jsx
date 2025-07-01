@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import Loginimage from '../assets/Image123.jpg';
 import { FaLock, FaEnvelope } from 'react-icons/fa';
 
@@ -53,12 +54,12 @@ const Login = () => {
 
             {/* Links */}
             <div className="w-full flex justify-between mt-8 text-sm text-white/80">
-              <a href="#" className="hover:underline text-[#070E2A]">
+              <Link to="/signup" className="hover:underline text-[#070E2A]">
                 Create an account
-              </a>
-              <a href="#" className="hover:underline text-[#070E2A]">
+              </Link>
+              <Link to="/forgot-password" className="hover:underline text-[#070E2A]">
                 Forgot password?
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -68,3 +69,4 @@ const Login = () => {
 };
 
 export default Login;
+

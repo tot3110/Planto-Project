@@ -8,15 +8,13 @@ import UpcomingItem from '../components/UpcomingItem'
 import { FaHubspot } from 'react-icons/fa'
 const Dashboard = () => {
   return (
-    <div>
-        <LeftSidebar />
-        <div>
-            <Navbar />
-        </div>
-        <RightSidebar />
+    <div className='flex'>
+      <LeftSidebar />
+      <div>
+        <RightSidebar /> 
+      </div> 
     </div>
   )
 }
 
 export default Dashboard
-
