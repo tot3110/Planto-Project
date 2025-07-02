@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import totalAmount from '../assets/tdesign_money.svg'
 import { MdColorLens } from 'react-icons/md'
 import threeDot from '../assets/Vector (1).svg'
+import amountDeposit from '../assets/ph_hand-deposit-bold.svg'
+import amountSpent from '../assets/qlementine-icons_money-16.svg'
 
 const Dashboard = () => {
   const Carddata = {
@@ -22,17 +24,17 @@ const Dashboard = () => {
 
   const Carddata2 = {
     color: "white",
-    text: "Total Amount",
-    icon: totalAmount ,
+    text: "Amount Deposit",
+    icon: amountDeposit ,
     dotIcon: threeDot,  
-    price: "$ 50,000"    
+    price: "$ 27,000"    
   }
   const Carddata3 = {
     color: "white",
-    text: "Total Amount",
-    icon: totalAmount ,
+    text: "Amount Spent",
+    icon: amountSpent ,
     dotIcon: threeDot,  
-    price: "$ 50,000"    
+    price: "$ 7,500"    
   }
   return (
     <div className='flex text-white'>
@@ -43,6 +45,9 @@ const Dashboard = () => {
         <Card data={Carddata}/>
         <Card data={Carddata2}/>
         <Card data={Carddata3}/>
+      </div>
+      <div>
+        <Chart />
       </div>
       </div>
       <RightSidebar className="w-64"/>  
