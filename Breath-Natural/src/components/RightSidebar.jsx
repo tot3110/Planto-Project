@@ -1,5 +1,9 @@
 import React from 'react';
 import { Home, Heart, Car, User, MoreVertical } from 'lucide-react';
+import userImage from '../assets/user image.jpg';
+import userBell from '../assets/bell.svg';
+import userMessage from '../assets/msg.svg'
+import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   const historyItems = [
@@ -93,23 +97,28 @@ const Sidebar = () => {
   );
 
   return (
-    <div className="w-80 bg-[#242e24] h-[800px] overflow-y-auto" style={{
-      scrollbarWidth: 'none',msOverflowStyle: 'none',}}>
+    <div className="w-80 bg-[#242e24] h-[800px] flex flex-col items-center " >
       {/* Header */}
       <div className="p-6 border-b border-gray-800">
         <div className="flex items-center space-x-4">
-          <div className="w-8 h-8 bg-gray-700 rounded-lg flex items-center justify-center">
-            <div className="w-4 h-4 bg-white rounded-sm"></div>
+          <div className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center">
+            <div className="w-6 h-6 rounded-sm">
+              <img src={userMessage} />
+            </div>
           </div>
-          <div className="w-6 h-6 bg-gray-700 rounded-full"></div>
-          <div className="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center">
+          <div className="w-12 h-12 bg-gray-700 flex rounded-full justify-center items-center">
+            <img src={userBell} className='w-6 h-6' />
+          </div>
+          
+          <div className="w-12 h-12">
+          <img src={userImage} className='w-full h-full rounded-full'/>
           </div>
         </div>
       </div>
 
       {/* Content */}
-      <div className="p-6">
-        {renderSection('History', historyItems)}
+      <div className="w-[90%] ">
+        {renderSection('History', historyItems)} 
         {renderSection('Upcoming', upcomingItems)}
       </div>
     </div>

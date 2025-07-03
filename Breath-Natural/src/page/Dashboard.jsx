@@ -4,7 +4,6 @@ import LeftSidebar from '../components/LeftSidebar'
 import RightSidebar from '../components/RightSidebar'
 import Chart from '../components/Chart'
 import Navbar from '../components/Navbar'
-import UpcomingItem from '../components/UpcomingItem'
 import { FaHubspot } from 'react-icons/fa'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import totalAmount from '../assets/tdesign_money.svg'
@@ -23,19 +22,21 @@ const Dashboard = () => {
   }
 
   const Carddata2 = {
-    encolor: "white",
+    color: "#55B000",
     text: "Amount Deposit",
     icon: amountDeposit ,
     dotIcon: threeDot,  
     price: "$ 27,000"    
   }
+  
   const Carddata3 = {
-    color: "white",
+    color: "#F17C1C",
     text: "Amount Spent",
     icon: amountSpent ,
     dotIcon: threeDot,  
     price: "$ 7,500"    
   }
+
   return (
     <div className='flex text-white'>
       <LeftSidebar className="w-64" />
