@@ -4,7 +4,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
   return (
-    <div className='flex justify-around items-center h-[100px]'>
+    <div className='flex justify-between px-10 items-center h-[100px]'>
       <div>
         <h1 className='text-[36px] font-[700]'>Dashboard</h1>
         <p className='opacity-30'>Your Personal Dashboard</p>

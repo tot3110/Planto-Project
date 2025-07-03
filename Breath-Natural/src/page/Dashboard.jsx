@@ -23,7 +23,7 @@ const Dashboard = () => {
   }
 
   const Carddata2 = {
-    color: "white",
+    encolor: "white",
     text: "Amount Deposit",
     icon: amountDeposit ,
     dotIcon: threeDot,  

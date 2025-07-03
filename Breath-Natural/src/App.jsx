@@ -19,13 +19,13 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        {/* <Route path="/transfers" element={<Transfers />} />
-        <Route path="/analytics" element={<Analytics />} />
-        <Route path="/savings" element={<Savings />} />
-        <Route path="/records" element={<Records />} />
-        <Route path="/history" element={<History />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/contact" element={<Contact />} /> */}
+        {/* <Route path="/transfers" element={<Transfers />} /> */}
+        {/* <Route path="/analytics" element={<Analytics />} /> */}
+        {/* <Route path="/savings" element={<Savings />} /> */}
+        {/* <Route path="/records" element={<Records />} /> */}
+        {/* <Route path="/history" element={<History />} /> */}
+        {/* <Route path="/settings" element={<Settings />} /> */}
+        {/* <Route path="/contact" element={<Contact />} />  */}
       </Routes>
     </Router>
   );

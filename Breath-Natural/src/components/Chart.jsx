@@ -26,24 +26,24 @@ const data = [
 
 const Chart = () => {
  return (
-  <div>
+  <div className='px-10'>
   <div className="flex justify-between items-center mb-4">
         <h2 className="text-[36px] text-2xl font-bold">Spent</h2>
-        <div className='flex gap-10'>
-          <p className='flex gap-2'><div className='w-[10px] h-[10px] bg-white rounded-full'></div>Daily Expense</p>
-          <p className='flex gap-2'> <div className='w-[10px] h-[10px] bg-white rounded-full'></div>Car Insurance</p>
-          <p className='flex gap-2'><div className='w-[10px] h-[10px] bg-white rounded-full'></div>Health</p>
-          <span className="text-sm pr-10 text-gray-400">Last 7 Days</span>
+        <div className='flex items-center gap-5 text-[#FFFFFF99]'>
+          <p className='flex items-center gap-2'><div className='w-[10px] h-[10px] bg-[#B6116B] rounded-full'></div>Daily Expense</p>
+          <p className='flex items-center gap-2'> <div className='w-[10px] h-[10px] bg-[#FFF84E] rounded-full'></div>Car Insurance</p>
+          <p className='flex items-center gap-2'><div className='w-[10px] h-[10px] bg-[#09FBD3] rounded-full'></div>Health</p>
         </div>
+        <span className="text-sm text-gray-400">Last 7 Days</span>
       </div>
-    <div className="bg-[#0e0e10] text-white p-6 rounded-2xl shadow-xl w-full max-w-4xl">
+    <div className=" text-white p-6 rounded-2xl shadow-xl w-full max-w-4xl">
       <ResponsiveContainer w={400} height={300}>
         <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" stroke="#1f1f1f" />
           <XAxis dataKey="name" stroke="#999" />
           <YAxis stroke="#999" />
-          <Tooltip />
-          <Legend />
+          {/* <Tooltip /> */}
+          {/* <Legend /> */}
           <Line type="monotone" dataKey="daily" stroke="#d946ef" strokeWidth={2} dot={false} name="Daily Expense" />
           <Line type="monotone" dataKey="car" stroke="#eab308" strokeWidth={2} dot={false} name="Car Insurance" />
           <Line type="monotone" dataKey="health" stroke="#06b6d4" strokeWidth={2} dot={false} name="Health" />

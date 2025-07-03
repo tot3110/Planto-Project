@@ -20,7 +20,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-[20%] h-screen bg-[#242e24] text-white flex flex-col justify-between">
+    <div className="w-[20%] h-[800px] bg-[#242e24] text-white flex flex-col justify-between">
       <div>
         <div className="p-6 font-bold text-xl">Breath Natural</div>
 
