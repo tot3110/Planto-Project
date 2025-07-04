@@ -16,7 +16,7 @@ const Sidebar = () => {
 
   const bottomMenu = [
     { path: "/settings", label: "Settings", icon: <FiSettings /> },
-    { path: "/contact", label: "Contact us", icon: <MdOutlineContactMail /> },
+    { path: "/contact", label: "Logout", icon: <MdOutlineContactMail /> },
   ];
 
   return (
@@ -30,7 +30,7 @@ const Sidebar = () => {
               to={item.path}
               key={item.path}
               className={({ isActive }) =>
-                `flex items-center gap-3 p-2 rounded-md transition-all ${
+                `flex items-center gap-2 p-2 rounded-md transition-all ${
                   isActive ? "bg-green-700 text-white font-semibold" : "text-gray-400 hover:text-white hover:bg-gray-800"
                 }`
               }

@@ -9,7 +9,6 @@ import Savings from "./page/Savings";
 import Records from "./page/Records";
 import History from "./page/History";
 import Settings from "./page/Settings";
-import Contact from "./page/Contact";
 
 
 function App() {
@@ -25,7 +24,6 @@ function App() {
         <Route path="/records" element={<Records />} />
         <Route path="/history" element={<History />} />
         <Route path="/settings" element={<Settings />} />
-        <Route path="/contact" element={<Contact />} /> 
       </Routes>
     </Router>
   );
