@@ -38,7 +38,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className='flex text-white'>
+    <div className='flex h-[800px] text-white'>
       <LeftSidebar className="w-64" />
       <div className='w-[60%] bg-[#181D14]'>
       <Navbar />

@@ -9,9 +9,9 @@ const Transfers = () => {
   ];
 
   return (
-    <div className='flex'>
+    <div className='flex h-[700px]'>
     <LeftSidebar />
-    <div className="w-[100%]  p-4 sm:p-6 md:p-8 bg-[#181D14] ">
+    <div className="w-[100%] sm:px-8 sm:pt-8 md:px-8 md:pt-8 bg-[#181D14] ">
       
       {/* Header */}
       <h1 className="text-2xl sm:text-3xl font-semibold text-white mb-6">
@@ -58,7 +58,7 @@ const Transfers = () => {
               </div>
 
       {/* Recent Transfers Table */}
-      <div className="bg-[#181D14] p-6 rounded-xl shadow-md overflow-x-auto">
+      <div className="bg-[#181D14] px-6 pt-6 rounded-xl shadow-md overflow-x-auto">
         <h2 className="text-lg font-semibold mb-4 text-white">Recent Transfers</h2>
         <table className="min-w-full text-sm text-white">
           <thead className="bg-[#181D14] text-left">

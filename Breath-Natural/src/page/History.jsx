@@ -42,16 +42,16 @@ const History = () => {
   ];
 
   return (
-  <div className="flex">
+  <div className="flex h-screen">
   <LeftSidebar />
-    <div className="w-[80%] min-h-screen bg-gray-100 p-4 sm:p-6 md:p-8 overflow-y-auto">
-      <h1 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-6">
+    <div className="w-[80%] min-h-screen bg-[#181D14] p-4 sm:p-6 md:p-8 overflow-y-auto">
+      <h1 className="text-2xl sm:text-3xl font-semibold text-white mb-6">
         Activity History
       </h1>
 
-      <div className="bg-white rounded-xl shadow p-4 overflow-x-auto">
-        <table className="min-w-full text-sm text-left text-gray-700">
-          <thead className="bg-gray-200 text-xs uppercase text-gray-600">
+      <div className="bg-[#242e24] rounded-xl shadow p-4 overflow-x-auto">
+        <table className="min-w-full text-sm text-left text-white">
+          <thead className="bg-gray-200 text-xs uppercase text-gray-700">
             <tr>
               <th className="px-4 py-3">Timestamp</th>
               <th className="px-4 py-3">User</th>
@@ -63,7 +63,7 @@ const History = () => {
             {historyData.map((item) => (
               <tr
                 key={item.id}
-                className="border-b hover:bg-gray-50 transition duration-150"
+                className="border-b  transition duration-150"
               >
                 <td className="px-4 py-2">{item.timestamp}</td>
                 <td className="px-4 py-2">{item.user}</td>

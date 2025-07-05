@@ -80,7 +80,7 @@ const Sidebar = () => {
           return (
             <div
               key={item.id}
-              className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-800 transition-colors cursor-pointer group"
+              className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-800 transition-colors cursor-pointer group"
             >
               <div className={`p-2 rounded-lg bg-gray-800 group-hover:bg-gray-700 transition-colors`}>
                 <IconComponent className={`w-5 h-5 ${item.color}`} />

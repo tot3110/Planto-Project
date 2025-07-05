@@ -20,10 +20,10 @@ const Records = () => {
   );
 
   return (
-    <div className='flex'>
+    <div className='flex h-screen'>
     <LeftSidebar />
-    <div className="w-[80%] min-h-screen bg-gray-100 p-4 sm:p-6 md:p-8 overflow-y-auto">
-      <h1 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-6">Transaction Records</h1>
+    <div className="w-[80%] min-h-screen bg-[#181D14] p-4 sm:p-6 md:p-8 overflow-y-auto">
+      <h1 className="text-2xl sm:text-3xl font-semibold text-white mb-6">Transaction Records</h1>
 
       {/* Filter Section */}
       <div className="flex flex-col sm:flex-row gap-4 mb-6">
@@ -32,12 +32,12 @@ const Records = () => {
           placeholder="Search by description..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full sm:w-1/2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full sm:w-1/2 px-4 py-2 bg-[#242e24] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
         <select
           value={month}
           onChange={(e) => setMonth(e.target.value)}
-          className="w-full sm:w-1/4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full sm:w-1/4 px-4 py-2 bg-[#242e24] text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
         >
           <option value="">Filter by Month</option>
           <option value="2025-07">July 2025</option>
@@ -46,7 +46,7 @@ const Records = () => {
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto bg-white rounded-xl shadow p-4">
+      <div className="overflow-x-auto bg-[#242e24] rounded-xl shadow p-4">
         <table className="min-w-full text-sm text-left text-gray-700">
           <thead className="bg-gray-200 text-xs uppercase text-gray-600">
             <tr>
@@ -59,7 +59,7 @@ const Records = () => {
           <tbody>
             {filteredRecords.length > 0 ? (
               filteredRecords.map((record) => (
-                <tr key={record.id} className="border-b hover:bg-gray-50">
+                <tr key={record.id} className="border-b text-white">
                   <td className="px-4 py-2">{record.date}</td>
                   <td className={`px-4 py-2 font-medium ${record.type === 'Income' ? 'text-green-600' : record.type === 'Expense' ? 'text-red-600' : 'text-blue-600'}`}>
                     {record.type}

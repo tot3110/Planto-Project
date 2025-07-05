@@ -2,7 +2,7 @@ import React from 'react'
 import LeftSidebar from '../components/LeftSidebar'
 const Analytics = () => {
   return (
-    <div className='flex'>
+    <div className='flex h-screen'>
     <LeftSidebar />
     <div className="w-[100%] min-h-screen p-4 sm:p-6 md:p-8 bg-[#181D14] overflow-y-auto">
       {/* Header */}
@@ -10,26 +10,26 @@ const Analytics = () => {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <div className="bg-[#181D14] p-6 rounded-lg shadow-md">
+        <div className="bg-[#242e24] p-6 rounded-lg shadow-md">
           <h2 className="text-sm font-medium text-white">Users</h2>
           <p className="text-2xl font-bold text-white">1,234</p>
         </div>
-        <div className="bg-[#181D14] p-6 rounded-lg shadow-md">
+        <div className="bg-[#242e24] p-6 rounded-lg shadow-md">
           <h2 className="text-sm font-medium text-white">Transactions</h2>
           <p className="text-2xl font-bold text-white">$8,730</p>
         </div>
-        <div className="bg-[#181D14] p-6 rounded-lg shadow-md">
+        <div className="bg-[#242e24] p-6 rounded-lg shadow-md">
           <h2 className="text-sm font-medium text-white">Revenue</h2>
           <p className="text-2xl font-bold text-white">$12,340</p>
         </div>
-        <div className="bg-[#181D14] p-6 rounded-lg shadow-md">
+        <div className="bg-[#242e24] p-6 rounded-lg shadow-md">
           <h2 className="text-sm font-medium text-white">Growth</h2>
           <p className="text-2xl font-bold text-green-600">+18%</p>
         </div>
       </div>
 
       {/* Chart Placeholder */}
-      <div className="bg-[#181D14] p-6 rounded-lg shadow-md mb-8">
+      <div className="bg-[#242e24] p-6 rounded-lg shadow-md mb-8">
         <h2 className="text-lg font-semibold text-white mb-4">Monthly Activity</h2>
         <div className="h-64 flex items-center justify-center text-white">
           {/* Replace with chart later */}
@@ -38,7 +38,7 @@ const Analytics = () => {
       </div>
 
       {/* Recent Activity */}
-      <div className="bg-[#181D14] p-6 rounded-lg shadow-md">
+      <div className="bg-[#242e24] p-6 rounded-lg shadow-md">
         <h2 className="text-lg font-semibold text-white mb-4">Recent Activity</h2>
         <ul className="space-y-4">
           <li className="flex justify-between text-sm text-white">
