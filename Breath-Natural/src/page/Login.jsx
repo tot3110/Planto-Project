@@ -8,11 +8,11 @@ const Login = () => {
     <div className="w-full min-h-screen bg-gradient-to-r from-[#AC72A1] via-[#FBD9FA] to-[#070E2A] flex items-center justify-center px-4 py-8">
       
       {/* Container for both sides */}
-      <div className="flex flex-col lg:flex-row w-full max-w-6xl gap-8 items-center">
+      <div className="flex flex-col lg:flex-row w-full max-w-6xl items-center">
         
         {/* Left side - IMAGE */}
-        <div className="w-full lg:w-1/2 flex justify-center">
-          <div className="w-full max-w-md h-[250px] sm:h-[350px] md:h-[400px] lg:h-[450px] relative rounded-[30px] bg-black overflow-hidden shadow-xl">
+        <div className="w-full lg:w-1/2 flex justify-end">
+          <div className="w-full max-w-md h-[ px] sm:h-[350px] md:h-[400px] lg:h-[450px] relative rounded-[30px] bg-black overflow-hidden shadow-xl">
             <img
               src={Loginimage}
               alt="Login Visual"
@@ -22,9 +22,8 @@ const Login = () => {
         </div>
 
         {/* Right side - LOGIN FORM */}
-        <div className="w-full lg:w-1/2 flex justify-center">
-          <div className="w-full max-w-md rounded-[30px] p-6 sm:p-8 lg:p-10 bg-white/10 backdrop-blur-md flex flex-col items-center justify-center shadow-xl">
-            
+        <div className="w-full lg:w-1/2 flex justify-start">
+          <div className="w-full max-w-md rounded-r-[30px] p-6 sm:p-8 lg:p-10 bg-white/10 backdrop-blur-md flex flex-col items-center justify-center shadow-xl">
             {/* Heading */}
             <h2 className="text-2xl sm:text-3xl font-bold text-center bg-gradient-to-b from-[#AC72A1] to-[#070E2A] text-transparent bg-clip-text mb-8">
               Login

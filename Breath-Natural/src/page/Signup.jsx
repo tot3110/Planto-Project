@@ -8,14 +8,14 @@ const Login = () => {
     <div className="w-full min-h-screen bg-gradient-to-r from-[#AC72A1] via-[#FBD9FA] to-[#070E2A] flex items-center justify-center px-4 py-8">
       
       {/* Wrapper for both sides */}
-      <div className="flex flex-col lg:flex-row w-full max-w-7xl gap-8 items-center">
+      <div className="flex flex-col lg:flex-row w-full max-w-7xl items-center">
         
         {/* Left side - LOGIN FORM */}
-        <div className="w-full lg:w-1/2 flex justify-center">
-          <div className="w-full max-w-md sm:max-w-lg lg:max-w-md xl:max-w-lg bg-white/10 backdrop-blur-md rounded-[30px] p-6 sm:p-8 lg:p-10 shadow-lg">
+        <div className="w-full lg:w-1/2 flex justify-end">
+          <div className="w-full max-w-md sm:max-w-lg lg:max-w-md xl:max-w-lg bg-white/10 backdrop-blur-md rounded-l-[30px] px-6 py-3 sm:p-5 lg:p-4 shadow-lg">
             
             {/* Heading */}
-            <h2 className="text-3xl font-bold text-center bg-gradient-to-b from-[#AC72A1] to-[#070E2A] text-transparent bg-clip-text mb-8">
+            <h2 className="text-3xl font-bold text-center  bg-gradient-to-b from-[#AC72A1] to-[#070E2A] text-transparent bg-clip-text mb-6">
               Signup
             </h2>
 
@@ -62,8 +62,8 @@ const Login = () => {
         </div>
 
         {/* Right side - IMAGE */}
-        <div className="w-full lg:w-1/2 flex justify-center">
-          <div className="w-full max-w-md sm:max-w-lg lg:max-w-md xl:max-w-lg h-[300px] sm:h-[400px] lg:h-[500px] relative rounded-[30px] bg-black overflow-hidden shadow-lg">
+        <div className="w-full lg:w-1/2 flex justify-start">
+          <div className="w-full max-w-md sm:max-w-lg lg:max-w-md xl:max-w-lg sm:h-[350px] md:h-[400px] lg:h-[450px] relative rounded-[30px] bg-black overflow-hidden shadow-lg">
             <img src={SignupImage} alt="Signup Visual" className="absolute object-cover w-full h-full top-0 left-0" />
           </div>
         </div>

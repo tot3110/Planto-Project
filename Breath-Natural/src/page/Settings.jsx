@@ -13,7 +13,7 @@ const Settings = () => {
   return (
     <div className="flex h-[700px]">
       <LeftSidebar />
-      <div className="w-[80%] min-h-screen p-6 bg-[#181D14] text-white text-gray-800">
+      <div className="w-[80%] min-h-screen p-6 bg-[#181D14] text-white">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl sm:text-3xl font-semibold">Settings</h1>
         </div>
@@ -27,7 +27,7 @@ const Settings = () => {
               <input
                 type="text"
                 placeholder="Enter Your Full Name"
-                className="w-full px-4 py-2 rounded-lg text-white bg-[#181D14] focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 rounded-lg text-white bg-[#181D14] focus:outline-none"
               />
             </div>
             <div>
@@ -35,7 +35,7 @@ const Settings = () => {
               <input
                 type="email"
                 placeholder="john@example.com"
-                className="w-full px-4 py-2 rounded-lg bg-[#181D14] text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 rounded-lg bg-[#181D14] text-white focus:outline-none"
               />
             </div>
           </div>
@@ -50,7 +50,7 @@ const Settings = () => {
               <input
                 type="password"
                 placeholder="••••••••"
-                className="w-full px-4 py-2 rounded-lg bg-[#181D14] text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 rounded-lg bg-[#181D14] text-white focus:outline-none"
               />
             </div>
             <div>
@@ -58,17 +58,17 @@ const Settings = () => {
               <input
                 type="password"
                 placeholder="New Password"
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 rounded-lg bg-[#181D14] text-white focus:outline-none"
               />
             </div>
           </div>
-          <button className="mt-4 px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-medium">
+          <button className="mt-4 px-5 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-sm font-medium">
             Update Password
           </button>
         </div>
 
         {/* Notification Preferences */}
-        <div className="bg-white rounded-xl p-5 mb-6 shadow">
+        <div className="bg-[#242e24] rounded-xl p-5 mb-6 shadow">
           <h2 className="text-xl font-semibold mb-4">Notification Preferences</h2>
           <div className="flex flex-col gap-3">
             <label className="flex items-center gap-2">

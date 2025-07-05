@@ -9,7 +9,6 @@ import Savings from "./page/Savings";
 import Records from "./page/Records";
 import History from "./page/History";
 import Settings from "./page/Settings";
-import Logout from "./page/Logout";
 
 
 
@@ -26,7 +25,6 @@ function App() {
         <Route path="/records" element={<Records />} />
         <Route path="/history" element={<History />} />
         <Route path="/settings" element={<Settings />} />
-        <Route path="/logout" element={<Logout />} />
       </Routes>
     </Router>
   );

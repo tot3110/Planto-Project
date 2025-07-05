@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
 import { MdDashboard, MdOutlineContactMail } from "react-icons/md";
 import { FaExchangeAlt, FaChartBar, FaPiggyBank, FaRegFileAlt, FaHistory } from "react-icons/fa";
+import { MdLogout } from "react-icons/md";
+
 
 const Sidebar = () => {
   const menu = [
@@ -16,9 +18,13 @@ const Sidebar = () => {
 
   const bottomMenu = [
     { path: "/settings", label: "Settings", icon: <FiSettings /> },
-    { path: "/contact", label: "Logout", icon: <MdOutlineContactMail /> },
   ];
 
+  const logout = () =>{
+    console.log("logoutclick")
+  }
+
+  
   return (
     <div className="w-[20%] h-[100%] bg-[#242e24] text-white flex flex-col justify-between">
       <div>
@@ -57,9 +63,17 @@ const Sidebar = () => {
             {item.label}
           </NavLink>
         ))}
+
+
+
+        <button className="flex gap-3 items-center p-2 text-gray-400 hover:text-white hover:bg-gray-800" onClick={logout}>
+            <MdLogout />
+            <span>Logout</span>
+          </button>
       </div>
     </div>
   );
 };
 
 export default Sidebar;
+
