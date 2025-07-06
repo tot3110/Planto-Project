@@ -1,9 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SignupImage from '../assets/Image123.jpg';
 import { FaLock, FaEnvelope, FaUser } from 'react-icons/fa';
 import { Link } from "react-router-dom";
 
+
 const Login = () => {
+  const [form,setForm] = useState({username:"", email:"", password:"" });
+  const handleChange = (e) =>{
+    const {name,value} = e.target 
+    setForm((previousValue) =>{
+      return{...previousValue, [name]:value}
+    })
+  }
+
+  const handleSubmit = async () =>{
+  const response = await fetch("https://eb-project-backend-production.up.railway.app/api/v0/user/createUser",{
+      method: "POST",
+      body: JSON.stringify(form)
+    })
+    
+    const data = await response.json()
+    console.log(data);
+
+  }
+
   return (
     <div className="w-full min-h-screen bg-gradient-to-r from-[#AC72A1] via-[#FBD9FA] to-[#070E2A] flex items-center justify-center px-4 py-8">
       
@@ -24,6 +44,8 @@ const Login = () => {
               <FaUser className="absolute top-1/2 right-3 transform -translate-y-1/2 text-black text-lg" />
               <input
                 type="text"
+                onChange={handleChange}
+                name='username'
                 placeholder="Username"
                 className="w-full bg-transparent border-b border-black placeholder-black pl-2 pr-10 py-3 focus:outline-none"
               />
@@ -34,6 +56,8 @@ const Login = () => {
               <FaEnvelope className="absolute top-1/2 right-3 transform -translate-y-1/2 text-black text-lg" />
               <input
                 type="email"
+                onChange={handleChange}
+                name='email'
                 placeholder="Email"
                 className="w-full bg-transparent border-b border-black placeholder-black pl-2 pr-10 py-3 focus:outline-none"
               />
@@ -44,13 +68,15 @@ const Login = () => {
               <FaLock className="absolute top-1/2 right-3 transform -translate-y-1/2 text-black text-lg" />
               <input
                 type="password"
+                onChange={handleChange}
+                name='password'
                 placeholder="Password"
                 className="w-full bg-transparent border-b border-black placeholder-black pl-2 pr-10 py-3 focus:outline-none"
               />
             </div>
 
             {/* Button */}
-            <button className="w-full bg-gradient-to-t from-[#070E2A] to-[#AC72A1] py-3 rounded-full hover:opacity-90 transition font-medium text-white">
+            <button onClick={handleSubmit} className="w-full bg-gradient-to-t from-[#070E2A] to-[#AC72A1] py-3 rounded-full hover:opacity-90 transition font-medium text-white">
               Sign In
             </button>
 
