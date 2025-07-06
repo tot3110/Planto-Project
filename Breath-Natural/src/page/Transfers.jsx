@@ -19,14 +19,14 @@ const Transfers = () => {
       </h1>
 
       {/* Transfer Form */}
-      <div className="bg-[#181D14] p-6 rounded-xl shadow-md mb-8">
+      <div className="bg-[#242e24] p-6 rounded-xl shadow-md mb-8">
         <form className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div>
   <label className="block text-sm font-medium text-white mb-1">Recipient</label>
   <input
     type="text"
     placeholder="Enter Your Name"
-    className="w-full px-4 py-2 border border-white text-white placeholder-white rounded-lg focus:outline-none focus:border-2 focus:border-white"
+    className="w-full px-4 py-2 bg-[#181D14] text-white placeholder-white rounded-lg focus:outline-none focus:border-2 focus:border-white"
   />
 </div>
 
@@ -35,7 +35,7 @@ const Transfers = () => {
             <input
               type="number"
               placeholder="Enter Amount"
-              className="w-full px-4 py-2 border border-white text-white placeholder-white rounded-lg focus:outline-none focus:border-2 focus:border-white"
+              className="w-full px-4 py-2 bg-[#181D14] text-white placeholder-white rounded-lg focus:outline-none focus:border-2 focus:border-white"
             />
           </div>
 
@@ -44,13 +44,13 @@ const Transfers = () => {
             <textarea
               rows="3"
               placeholder="Transfer reason"
-              className="w-full px-4 py-2 border border-white text-white placeholder-white rounded-lg focus:outline-none focus:border-2 focus:border-white"
+              className="w-full px-4 py-2 bg-[#181D14] text-white placeholder-white rounded-lg focus:outline-none focus:border-2 focus:border-white"
             ></textarea>
           </div>
           <div>
             <button
               type="submit"
-              className="bg-[#181D14] text-white px-6 py-2 border-2 border-white rounded-lg hover:bg-green-500 hover:text-white transition-colors duration-300">
+              className="text-white px-6 py-2  bg-green-500 hover:bg-green-600 rounded-lg">
               Send Transfer
               </button>
               </div>
@@ -58,10 +58,10 @@ const Transfers = () => {
               </div>
 
       {/* Recent Transfers Table */}
-      <div className="bg-[#181D14] px-6 pt-6 rounded-xl shadow-md overflow-x-auto">
+      <div className="bg-[#242e24] px-6 pt-6 rounded-xl shadow-md overflow-x-auto">
         <h2 className="text-lg font-semibold mb-4 text-white">Recent Transfers</h2>
         <table className="min-w-full text-sm text-white">
-          <thead className="bg-[#181D14] text-left">
+          <thead className="bg-[#242e24] text-left">
             <tr>
               <th className="px-4 py-2">Recipient</th>
               <th className="px-4 py-2">Amount</th>
