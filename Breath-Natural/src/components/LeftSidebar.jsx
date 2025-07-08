@@ -16,6 +16,7 @@ const Sidebar = () => {
   const menu = [
     { path: "/dashboard", label: "Dashboard", icon: <MdDashboard /> },
     { path: "/transfers", label: "Transfers", icon: <FaExchangeAlt /> },
+    { path: "/addplants", label: "AddPlants", icon: <FaHistory /> },
     { path: "/analytics", label: "Analytics", icon: <FaChartBar /> },
     { path: "/savings", label: "Savings", icon: <FaPiggyBank /> },
     { path: "/records", label: "Records", icon: <FaRegFileAlt /> },

@@ -39,9 +39,10 @@ const Login = () => {
     const data = await response.json();
 
     if (response.ok) {
-      // Optionally store token here
-      // localStorage.setItem("token", data.token);
-      nav("/dashboard");  // ✅ Redirect to dashboard
+      console.log(data)
+
+      localStorage.setItem("token", data.Token);
+      nav("/dashboard"); 
     } else {
       setError(data.message || "Login failed. Try again.");
     }
@@ -51,6 +52,7 @@ const Login = () => {
     setLoading(false);
   }
 };
+
 
   return (
     <div className="w-full min-h-screen bg-gradient-to-r from-[#AC72A1] via-[#FBD9FA] to-[#070E2A] flex items-center justify-center px-4 py-8">
@@ -126,3 +128,5 @@ const Login = () => {
 };
 
 export default Login;
+
+

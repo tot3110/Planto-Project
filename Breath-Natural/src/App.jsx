@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './page/Login';
 import Signup from './page/Signup';
 import Dashboard from "./page/Dashboard";
+import AddPlants from "./page/AddPlants";
 import Transfers from "./page/Transfers";
 import Analytics from "./page/Analytics";
 import Savings from "./page/Savings";
 import Records from "./page/Records";
 import History from "./page/History";
 import Settings from "./page/Settings";
+
 
 
 function App() {
@@ -18,6 +20,7 @@ function App() {
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/addplants" element={<AddPlants />} />
         <Route path="/transfers" element={<Transfers />} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/savings" element={<Savings />} />

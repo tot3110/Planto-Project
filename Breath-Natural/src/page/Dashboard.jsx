@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Card from '../components/Card'
 import LeftSidebar from '../components/LeftSidebar'
 import RightSidebar from '../components/RightSidebar'
@@ -11,8 +11,19 @@ import { MdColorLens } from 'react-icons/md'
 import threeDot from '../assets/Vector (1).svg'
 import amountDeposit from '../assets/ph_hand-deposit-bold.svg'
 import amountSpent from '../assets/qlementine-icons_money-16.svg'
+import { useNavigate } from "react-router-dom";
+
 
 const Dashboard = () => {
+  const nav = useNavigate();
+
+  useEffect(() =>{
+    const token = localStorage.getItem("token")
+
+    if(!token){
+      nav("/")
+}})
+
   const Carddata = {
     color: "white",
     text: "Total Amount",

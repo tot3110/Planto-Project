@@ -1,11 +1,27 @@
 import React from 'react';
-import { Home, Heart, Car, User, MoreVertical } from 'lucide-react';
+import { Home, Heart, Car, User, MoreVertical, ChartAreaIcon } from 'lucide-react';
 import userImage from '../assets/user image.jpg';
 import userBell from '../assets/bell.svg';
 import userMessage from '../assets/msg.svg'
 import { NavLink } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+
 
 const Sidebar = () => {
+  const token = localStorage.getItem("token");
+  let decodeToken;
+  // console.log(token)
+
+  if(token){
+    decodeToken = jwtDecode(token)
+    console.log(decodeToken)
+  }
+
+  const name = decodeToken.name
+  const firstChar = name[0].toUpperCase();
+  // console.log(firstChar)
+
+
   const historyItems = [
     {
       id: 1,
@@ -110,8 +126,9 @@ const Sidebar = () => {
             <img src={userBell} className='w-6 h-6' />
           </div>
           
-          <div className="w-12 h-12">
-          <img src={userImage} className='w-full h-full rounded-full'/>
+          <div className="w-12 h-12 flex justify-center items-center rounded-full bg-gray-700 font-bold">
+          {/* <p src={userImage} className='w-full h-full rounded-full'/> */}
+          <p className='text-[24px]'>{firstChar}</p> 
           </div>
         </div>
       </div>
@@ -126,3 +143,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
