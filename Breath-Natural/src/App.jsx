@@ -11,7 +11,6 @@ import History from "./page/History";
 import Settings from "./page/Settings";
 
 
-
 function App() {
   return (
     <Router>
@@ -31,3 +30,4 @@ function App() {
 }
 
 export default App;
+

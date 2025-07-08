@@ -1,12 +1,18 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom"; // ✅ import useNavigate
 import { FiSettings } from "react-icons/fi";
-import { MdDashboard, MdOutlineContactMail } from "react-icons/md";
-import { FaExchangeAlt, FaChartBar, FaPiggyBank, FaRegFileAlt, FaHistory } from "react-icons/fa";
-import { MdLogout } from "react-icons/md";
-
+import { MdDashboard, MdOutlineContactMail, MdLogout } from "react-icons/md";
+import {
+  FaExchangeAlt,
+  FaChartBar,
+  FaPiggyBank,
+  FaRegFileAlt,
+  FaHistory,
+} from "react-icons/fa";
 
 const Sidebar = () => {
+  const navigate = useNavigate(); // ✅ initialize useNavigate
+
   const menu = [
     { path: "/dashboard", label: "Dashboard", icon: <MdDashboard /> },
     { path: "/transfers", label: "Transfers", icon: <FaExchangeAlt /> },
@@ -20,11 +26,12 @@ const Sidebar = () => {
     { path: "/settings", label: "Settings", icon: <FiSettings /> },
   ];
 
-  const logout = () =>{
-    console.log("logoutclick")
-  }
+  const logout = () => {
+    localStorage.removeItem("user");   // ✅ Clear user data
+    localStorage.removeItem("token");  // ✅ Clear token if you use one
+    navigate("/");                     // ✅ Navigate to login page
+  };
 
-  
   return (
     <div className="w-[20%] h-[100%] bg-[#242e24] text-white flex flex-col justify-between">
       <div>
@@ -37,7 +44,9 @@ const Sidebar = () => {
               key={item.path}
               className={({ isActive }) =>
                 `flex items-center gap-2 p-2 rounded-md transition-all ${
-                  isActive ? "bg-green-700 text-white font-semibold" : "text-gray-400 hover:text-white hover:bg-gray-800"
+                  isActive
+                    ? "bg-green-700 text-white font-semibold"
+                    : "text-gray-400 hover:text-white hover:bg-gray-800"
                 }`
               }
             >
@@ -55,7 +64,9 @@ const Sidebar = () => {
             key={item.path}
             className={({ isActive }) =>
               `flex items-center gap-3 p-2 rounded-md transition-all ${
-                isActive ? "bg-green-700 text-white font-semibold" : "text-gray-400 hover:text-white hover:bg-gray-800"
+                isActive
+                  ? "bg-green-700 text-white font-semibold"
+                  : "text-gray-400 hover:text-white hover:bg-gray-800"
               }`
             }
           >
@@ -64,16 +75,16 @@ const Sidebar = () => {
           </NavLink>
         ))}
 
-
-
-        <button className="flex gap-3 items-center p-2 text-gray-400 hover:text-white hover:bg-gray-800" onClick={logout}>
-            <MdLogout />
-            <span>Logout</span>
-          </button>
+        <button
+          className="flex gap-3 items-center p-2 text-gray-400 hover:text-white hover:bg-gray-800"
+          onClick={logout}
+        >
+          <MdLogout />
+          <span>Logout</span>
+        </button>
       </div>
     </div>
   );
 };
 
 export default Sidebar;
-
