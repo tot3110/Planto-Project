@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LeftSidebar from '../components/LeftSidebar'
-
+import { useNavigate } from "react-router-dom";
 
 const History = () => {
+  const nav = useNavigate();
+
+  useEffect(() =>{
+    const token = localStorage.getItem("token")
+
+    if(!token){
+      nav("/")
+    }
+  })
   const historyData = [
     {
       id: 1,

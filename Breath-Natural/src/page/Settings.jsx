@@ -1,7 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LeftSidebar from '../components/LeftSidebar';
+import { useNavigate } from "react-router-dom";
+
 
 const Settings = () => {
+  const nav = useNavigate();
+
+  useEffect(() =>{
+    const token = localStorage.getItem("token")
+
+    if(!token){
+      nav("/")
+    }
+  })
+
   const [notifications, setNotifications] = useState({
     email: true,
     sms: false,

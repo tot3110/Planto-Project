@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import LeftSidebar from '../components/LeftSidebar'
+import { useNavigate } from 'react-router-dom';
 
 const Transfers = () => {
+  const nav = useNavigate();
+
+  useEffect(() =>{
+    const token = localStorage.getItem("token")
+
+    if(!token){
+      nav("/")
+    }
+  })
+  
   const recentTransfers = [
     { name: 'Hammad', amount: '$250', date: '2025-07-01', status: 'Completed' },
     { name: 'Toto', amount: '$180', date: '2025-06-30', status: 'Pending' },

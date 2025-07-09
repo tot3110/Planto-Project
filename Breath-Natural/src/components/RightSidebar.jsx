@@ -1,6 +1,6 @@
 import React from 'react';
 import { Home, Heart, Car, User, MoreVertical, ChartAreaIcon } from 'lucide-react';
-import userImage from '../assets/user image.jpg';
+// import userImage from '../assets/user image.jpg';
 import userBell from '../assets/bell.svg';
 import userMessage from '../assets/msg.svg'
 import { NavLink } from "react-router-dom";
