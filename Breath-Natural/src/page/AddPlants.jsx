@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LeftSidebar from "../components/LeftSidebar";
+import plantImage from  "../assets/plant.jpg"
 
 const AddPlants = () => {
   const nav = useNavigate();
@@ -13,47 +14,93 @@ const AddPlants = () => {
   }, [nav]);
 
   const [formData, setFormData] = useState({
-    name: "",
+    plantname: "",
     type: "",
     category: "",
     description: "",
     price: "",
-    status: "available",
+    status: "",
     image: null,
   });
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
+    const { name, value,  } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: files ? files[0] : value,
+      [name] : value,
     }));
   };
+const handleImageChange = async (e) => {
+  const { name, files } = e.target;
+  const selectedFile = files && files[0];
 
-  const handleSubmit = async (e) => {
-  e.preventDefault();
+  if (!selectedFile) return;
+
+  // Immediately update formData
+  setFormData((prev) => ({
+    ...prev,
+    [name]: selectedFile,
+  }));
 
   const data = new FormData();
-  data.append("image", formData.image); // assuming image is the only required field for upload
+  data.append("image", selectedFile); // Use selectedFile directly
 
   try {
-    const response = await fetch("https://eb-project-backend-production.up.railway.app/api/v0/plants/upload-image", {
-      method: "POST",
-      body: data,
-    });
+    const response = await fetch(
+      "https://eb-project-backend-production.up.railway.app/api/v0/plants/upload-image",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
 
     const result = await response.json();
     console.log("Image upload success:", result);
 
     if (response.ok) {
-      // If needed, you can store the uploaded image URL in your database here
+      setFormData((prev) => ({
+        ...prev,
+        image: result.image, // Save uploaded image URL or path if returned
+      }));
       alert("Image uploaded successfully!");
     } else {
       alert(`Upload failed: ${result.message}`);
+
     }
   } catch (error) {
     console.error("Upload error:", error);
     alert("Something went wrong during image upload.");
+  }
+};
+
+
+  
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  console.log(formData)
+  try {
+    const response = await fetch("https://eb-project-backend-production.up.railway.app/api/v0/plants/create ", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+    });
+
+    const result = await response.json();
+    console.log("form submitted ", result);
+
+    if (response.ok) {
+      // If needed, you can store the uploaded image URL in your database here
+      alert("Data uploaded successfully!");
+    } else {
+      alert(`Upload failed: ${result.message}`);
+
+    }
+  } catch (error) {
+    console.error("Upload error:", error);
+    alert("Something went wrong during Data upload.");
   }
 };
 
@@ -65,7 +112,7 @@ const AddPlants = () => {
         <div className="max-w-2xl rounded-xl shadow-md">
           <h2 className="text-2xl font-bold mb-6 text-white">Add New Plant</h2>
 
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-30">
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-[500px]">
   {/* Left Column */}
   <div className="space-y-4">
     {/* Plant Name */}
@@ -73,11 +120,11 @@ const AddPlants = () => {
       <label className="block text-white mb-1">Plant Name</label>
       <input
         type="text"
-        name="name"
+        name="plantname"
         value={formData.name}
         placeholder="Enter Plant Name"
         onChange={handleChange}
-        className="w-full bg-[#232e24] text-white px-4 py-2 rounded-lg focus:outline-none"
+        className="w-[350px] bg-[#232e24] text-white px-6 py-2 rounded-lg focus:outline-none"
         required
       />
     </div>
@@ -91,7 +138,7 @@ const AddPlants = () => {
         placeholder="Enter Type of Plant"
         value={formData.type}
         onChange={handleChange}
-        className="w-full px-4 text-white bg-[#232e24] py-2 rounded-lg focus:outline-none"
+        className="w-[350px] px-4 text-white bg-[#232e24] py-2 rounded-lg focus:outline-none"
       />
     </div>
 
@@ -102,7 +149,7 @@ const AddPlants = () => {
         name="category"
         value={formData.category}
         onChange={handleChange}
-        className="w-full text-white bg-[#232e24] px-4 py-2 rounded-lg focus:outline-none"
+        className="w-[350px] text-white bg-[#232e24] px-4 py-2 rounded-lg focus:outline-none"
         required
       >
         <option value="">Select Category</option>
@@ -121,7 +168,7 @@ const AddPlants = () => {
         placeholder="Enter Description"
         onChange={handleChange}
         rows={3}
-        className="w-full text-white px-4 py-2 bg-[#232e24] rounded-lg focus:outline-none"
+        className="w-[350px] text-white px-4 py-2 bg-[#232e24] rounded-lg focus:outline-none"
       />
     </div>
   </div>
@@ -137,20 +184,24 @@ const AddPlants = () => {
         value={formData.price}
         placeholder="Enter Price"
         onChange={handleChange}
-        className="w-full bg-[#232e24] text-white px-4 py-2 rounded-lg focus:outline-none"
+        className="w-[350px] bg-[#232e24] text-white px-4 py-2 rounded-lg focus:outline-none"
         required
       />
     </div>
 
     {/* Image */}
     <div>
-      <label className="block text-white mb-2">Plant Image</label>
+      <label htmlFor="plantImage" className="block text-white mb-2">
+        Plant Image
+        <img src={plantImage} alt="plantImage" className="rounded-2xl cursor-pointer w-16 h-16" />
+      </label>
       <input
         type="file"
         name="image"
+        id="plantImage"
         accept="image/*"
-        onChange={handleChange}
-        className="w-full"
+        onChange={handleImageChange}
+        className="w-[350px] hidden"
       />
     </div>
 
@@ -161,10 +212,11 @@ const AddPlants = () => {
         name="status"
         value={formData.status}
         onChange={handleChange}
-        className="w-full bg-[#232e24] text-white px-4 py-2 rounded-lg focus:outline-none"
+        className="w-[350px] bg-[#232e24] text-white px-4 py-2 rounded-lg focus:outline-none"
       >
-        <option value="available">Available</option>
-        <option value="unavailable">Unavailable</option>
+        <option value="Healthy">Healthy</option>
+        <option value="Needs Care">Needs Care</option>
+        <option value="Not Available">Not Available</option>
       </select>
     </div>
 
@@ -172,7 +224,7 @@ const AddPlants = () => {
     <div className="pt-3">
       <button
         type="submit"
-        className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-200"
+        className="w-[200px] bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-200"
       >
         Add Plant
       </button>
@@ -186,3 +238,7 @@ const AddPlants = () => {
 };
 
 export default AddPlants;
+
+
+
+
