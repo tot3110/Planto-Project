@@ -23,6 +23,18 @@ const AddPlants = () => {
     image: null,
   });
 
+  const resetForm = () => {
+  setFormData({
+    plantname: "",
+    type: "",
+    category: "",
+    description: "",
+    price: "",
+    status: "",
+    image: null,
+  });
+};
+
   const handleChange = (e) => {
     const { name, value,  } = e.target;
     setFormData((prev) => ({
@@ -62,10 +74,6 @@ const handleImageChange = async (e) => {
         ...prev,
         image: result.image, // Save uploaded image URL or path if returned
       }));
-      alert("Image uploaded successfully!");
-    } else {
-      alert(`Upload failed: ${result.message}`);
-
     }
   } catch (error) {
     console.error("Upload error:", error);
@@ -73,8 +81,6 @@ const handleImageChange = async (e) => {
   }
 };
 
-
-  
 
   const handleSubmit = async (e) => {
   e.preventDefault();
@@ -94,6 +100,7 @@ const handleImageChange = async (e) => {
     if (response.ok) {
       // If needed, you can store the uploaded image URL in your database here
       alert("Data uploaded successfully!");
+      resetForm();
     } else {
       alert(`Upload failed: ${result.message}`);
 
@@ -121,14 +128,14 @@ const handleImageChange = async (e) => {
       <input
         type="text"
         name="plantname"
-        value={formData.name}
+        value={formData.plantname}
         placeholder="Enter Plant Name"
         onChange={handleChange}
         className="w-[350px] bg-[#232e24] text-white px-6 py-2 rounded-lg focus:outline-none"
         required
       />
     </div>
-
+    
     {/* Type */}
     <div>
       <label className="block text-white mb-1">Type</label>
@@ -238,7 +245,5 @@ const handleImageChange = async (e) => {
 };
 
 export default AddPlants;
-
-
 
 

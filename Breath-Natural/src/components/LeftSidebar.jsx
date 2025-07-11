@@ -4,8 +4,10 @@ import { FiSettings } from "react-icons/fi";
 import { MdDashboard, MdOutlineContactMail, MdLogout } from "react-icons/md";
 import {
   FaExchangeAlt,
+  FaPlus,
   FaChartBar,
   FaPiggyBank,
+  FaUser,
   FaRegFileAlt,
   FaHistory,
 } from "react-icons/fa";
@@ -16,7 +18,8 @@ const Sidebar = () => {
   const menu = [
     { path: "/dashboard", label: "Dashboard", icon: <MdDashboard /> },
     { path: "/transfers", label: "Transfers", icon: <FaExchangeAlt /> },
-    { path: "/addplants", label: "AddPlants", icon: <FaHistory /> },
+    { path: "/addplants", label: "AddPlants", icon: <FaPlus /> },
+    { path: "/users", label: "Users", icon: <FaUser /> },
     { path: "/analytics", label: "Analytics", icon: <FaChartBar /> },
     { path: "/savings", label: "Savings", icon: <FaPiggyBank /> },
     { path: "/records", label: "Records", icon: <FaRegFileAlt /> },
