@@ -8,6 +8,7 @@ import {
   FaChartBar,
   FaPiggyBank,
   FaUser,
+  FaUserAlt,
   FaRegFileAlt,
   FaHistory,
 } from "react-icons/fa";
@@ -20,6 +21,7 @@ const Sidebar = () => {
     { path: "/transfers", label: "Transfers", icon: <FaExchangeAlt /> },
     { path: "/addplants", label: "AddPlants", icon: <FaPlus /> },
     { path: "/users", label: "Users", icon: <FaUser /> },
+    { path: "/profile", label: "Profile", icon: <FaUserAlt /> },
     { path: "/analytics", label: "Analytics", icon: <FaChartBar /> },
     { path: "/savings", label: "Savings", icon: <FaPiggyBank /> },
     { path: "/records", label: "Records", icon: <FaRegFileAlt /> },

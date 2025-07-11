@@ -5,6 +5,7 @@ import Signup from './page/Signup';
 import Dashboard from "./page/Dashboard";
 import AddPlants from "./page/AddPlants";
 import Users from "./page/Users";
+import Profile from "./page/Profile";
 import Transfers from "./page/Transfers";
 import Analytics from "./page/Analytics";
 import Savings from "./page/Savings";
@@ -23,6 +24,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/addplants" element={<AddPlants />} />
         <Route path="/users" element={<Users />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/transfers" element={<Transfers />} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/savings" element={<Savings />} />

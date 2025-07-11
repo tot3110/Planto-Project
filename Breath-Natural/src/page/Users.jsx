@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LeftSidebar from "../components/LeftSidebar";
 
+
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -22,10 +23,9 @@ const Users = () => {
   }, []);
 
   return (
-    <div className="flex">
-      <LeftSidebar />
-
-      <div className="p-8 bg-[#181D14] min-h-screen w-full">
+    <div className="flex h-[110vh]">
+        <LeftSidebar />
+      <div className="p-8 bg-[#181D14] h-[100%] w-full overflow-y-scroll">
         <h1 className="text-2xl font-bold mb-6 text-white">All Users</h1>
 
         {loading ? (
