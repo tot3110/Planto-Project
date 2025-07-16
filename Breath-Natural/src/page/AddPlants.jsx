@@ -66,13 +66,15 @@ const handleImageChange = async (e) => {
       }
     );
 
+    
+    console.log(response)
     const result = await response.json();
     console.log("Image upload success:", result);
 
     if (response.ok) {
       setFormData((prev) => ({
         ...prev,
-        image: result.image, // Save uploaded image URL or path if returned
+        image: result.image.path, // Save uploaded image URL or path if returned
       }));
     }
   } catch (error) {
@@ -162,7 +164,7 @@ const handleImageChange = async (e) => {
         <option value="">Select Category</option>
         <option value="indoor">Indoor</option>
         <option value="outdoor">Outdoor</option>
-        <option value="succulent">Succulent</option>
+        {/* <option value="succulent">Succulent</option> */}
       </select>
     </div>
 
@@ -221,8 +223,8 @@ const handleImageChange = async (e) => {
         onChange={handleChange}
         className="w-[350px] bg-[#232e24] text-white px-4 py-2 rounded-lg focus:outline-none"
       >
-        <option value="Healthy">Healthy</option>
-        <option value="Needs Care">Needs Care</option>
+        {/* <option value="Healthy">Healthy</option> */}
+        <option value="Available">Available</option>
         <option value="Not Available">Not Available</option>
       </select>
     </div>
