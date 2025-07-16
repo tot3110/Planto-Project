@@ -20,6 +20,7 @@ const Sidebar = () => {
     { path: "/dashboard", label: "Dashboard", icon: <MdDashboard /> },
     { path: "/transfers", label: "Transfers", icon: <FaExchangeAlt /> },
     { path: "/addplants", label: "AddPlants", icon: <FaPlus /> },
+    { path: "/getallplants", label: "GetAllPlants", icon: <FaPlus />},
     { path: "/users", label: "Users", icon: <FaUser /> },
     { path: "/profile", label: "Profile", icon: <FaUserAlt /> },
     { path: "/analytics", label: "Analytics", icon: <FaChartBar /> },

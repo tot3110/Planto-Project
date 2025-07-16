@@ -1,4 +1,4 @@
-import React from "react"; // Don't put `{ React }`, just `React`
+// import React, { createContext } from "react"; // Don't put `{ React }`, just `React`
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './page/Login';
 import Signup from './page/Signup';
@@ -12,17 +12,26 @@ import Savings from "./page/Savings";
 import Records from "./page/Records";
 import History from "./page/History";
 import Settings from "./page/Settings";
+import GetAllPlants from "./page/GetAllPlants";
 
 
 
+// export const NameContext = createContext(); //2nd step
 function App() {
+  // const namesapi=[
+  // {name:"basit"},
+  // {name:"hammad"},
+  // {name:"kashif"}]
   return (
+    // 3rd context
+    // <NameContext.Provider value={namesapi}> 
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/addplants" element={<AddPlants />} />
+        <Route path="/getallplants" element={<GetAllPlants />} />
         <Route path="/users" element={<Users />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/transfers" element={<Transfers />} />
@@ -33,6 +42,7 @@ function App() {
         <Route path="/settings" element={<Settings />} />
       </Routes>
     </Router>
+    // </NameContext.Provider>
   );
 }
 

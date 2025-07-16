@@ -79,7 +79,7 @@ const AddProfile = () => {
 
         {loading && <p className="text-gray-300">Loading...</p>}
         {error && <p className="text-red-500">{error}</p>}
-
+        
         {user && (
           <div className="bg-white p-6 rounded-lg shadow max-w-xl">
             <h2 className="text-xl font-semibold mb-4 text-gray-800">User Details</h2>

@@ -12,10 +12,13 @@ import threeDot from '../assets/Vector (1).svg'
 import amountDeposit from '../assets/ph_hand-deposit-bold.svg'
 import amountSpent from '../assets/qlementine-icons_money-16.svg'
 import { useNavigate } from "react-router-dom";
+// import {NameContext} from '../App'
 
 
 const Dashboard = () => {
+  // const namesformapis = useContext(NameContext);
   const nav = useNavigate();
+  // console.log(namesformapis)
 
   useEffect(() =>{
     const token = localStorage.getItem("token")
@@ -54,6 +57,13 @@ const Dashboard = () => {
       <div className='w-[60%] bg-[#181D14]'>
       <Navbar />
       <div className='flex px-10 py-5 gap-10'>
+        {/* <div>
+          {
+            namesformapis.map((i)=>(<>
+            <li>{i.name}</li>
+            </>))
+          }
+        </div> */}
         <Card data={Carddata}/>
         <Card data={Carddata2}/>
         <Card data={Carddata3}/>

@@ -57,6 +57,7 @@ const Signup = () => {
         setError(data.message || "Signup failed. Try again.");
       }
     } catch (err) {
+      console.log(err)
       setError("Something went wrong. Please try later.");
     } finally {
       setLoading(false);
@@ -156,3 +157,4 @@ const Signup = () => {
 };
 
 export default Signup;
+
