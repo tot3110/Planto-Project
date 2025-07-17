@@ -17,9 +17,10 @@ const AddProfile = () => {
       const isEmail = identifier.includes("@");
 
       const endpoint = isEmail
-        ? `https://eb-project-backend-production.up.railway.app/api/v0/user/getUserByEmail/${identifier}`
-        : `https://eb-project-backend-production.up.railway.app/api/v0/user/getSpecificUser/${identifier}`;
+        ? `https://sample-three-khaki.vercel.app/api/v0/user/getSpecificUser/${identifier}`
+        : `https://sample-three-khaki.vercel.app/api/v0/user/getSpecificUser/${identifier}`;
 
+        // console.log(identifier)
       const response = await fetch(endpoint, {
         method: "GET",
         headers: {

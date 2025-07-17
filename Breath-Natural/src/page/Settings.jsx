@@ -2,17 +2,15 @@ import React, { useEffect, useState } from "react";
 import LeftSidebar from '../components/LeftSidebar';
 import { useNavigate } from "react-router-dom";
 
-
 const Settings = () => {
   const nav = useNavigate();
 
-  useEffect(() =>{
-    const token = localStorage.getItem("token")
-
-    if(!token){
-      nav("/")
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      nav("/");
     }
-  })
+  }, [nav]);
 
   const [notifications, setNotifications] = useState({
     email: true,
@@ -23,16 +21,17 @@ const Settings = () => {
     setNotifications((prev) => ({ ...prev, [type]: !prev[type] }));
 
   return (
-    <div className="flex h-[700px]">
+    <div className="flex flex-col md:flex-row min-h-screen bg-[#181D14]">
       <LeftSidebar />
-      <div className="w-[80%] min-h-screen p-6 bg-[#181D14] text-white">
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl sm:text-3xl font-semibold">Settings</h1>
+
+      <div className="flex-1 w-full p-4 sm:p-6 md:p-10 text-white">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6">
+          <h1 className="text-xl sm:text-2xl font-semibold">Settings</h1>
         </div>
 
         {/* Profile Settings */}
-        <div className="bg-[#242e24] rounded-xl p-5 mb-6 shadow">
-          <h2 className="text-xl font-semibold mb-4">Profile Settings</h2>
+        <div className="bg-[#242e24] rounded-xl p-4 sm:p-5 mb-6 shadow">
+          <h2 className="text-lg sm:text-xl font-semibold mb-4">Profile Settings</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block mb-1 text-sm font-medium">Full Name</label>
@@ -54,8 +53,8 @@ const Settings = () => {
         </div>
 
         {/* Security Settings */}
-        <div className="bg-[#242e24] rounded-xl p-5 mb-6 shadow">
-          <h2 className="text-xl font-semibold mb-4">Security</h2>
+        <div className="bg-[#242e24] rounded-xl p-4 sm:p-5 mb-6 shadow">
+          <h2 className="text-lg sm:text-xl font-semibold mb-4">Security</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block mb-1 text-sm font-medium">Current Password</label>
@@ -74,14 +73,14 @@ const Settings = () => {
               />
             </div>
           </div>
-          <button className="mt-4 px-5 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-sm font-medium">
+          <button className="mt-4 w-full sm:w-auto px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-sm font-medium">
             Update Password
           </button>
         </div>
 
         {/* Notification Preferences */}
-        <div className="bg-[#242e24] rounded-xl p-5 mb-6 shadow">
-          <h2 className="text-xl font-semibold mb-4">Notification Preferences</h2>
+        <div className="bg-[#242e24] rounded-xl p-4 sm:p-5 mb-6 shadow">
+          <h2 className="text-lg sm:text-xl font-semibold mb-4">Notification Preferences</h2>
           <div className="flex flex-col gap-3">
             <label className="flex items-center gap-2">
               <input
@@ -106,7 +105,7 @@ const Settings = () => {
 
         {/* Save Button */}
         <div className="text-right">
-          <button className="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-sm font-medium">
+          <button className="w-full sm:w-auto px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-sm font-medium">
             Save Changes
           </button>
         </div>
