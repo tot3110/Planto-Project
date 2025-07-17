@@ -215,3 +215,5 @@ const AllPlants = () => {
 
 export default AllPlants;
 
+
+

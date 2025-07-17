@@ -24,6 +24,7 @@ const AddPlants = () => {
   });
 
   const [imageUploading, setImageUploading] = useState(false);
+  const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
 
   const resetForm = () => {
     setFormData({
@@ -35,6 +36,7 @@ const AddPlants = () => {
       status: "",
       image: null,
     });
+    setUploadedImageUrl(null);
   };
 
   const handleChange = (e) => {
@@ -47,16 +49,13 @@ const AddPlants = () => {
 
   const handleImageChange = async (e) => {
     const { name, files } = e.target;
+    console.log(name)
     const selectedFile = files && files[0];
 
     if (!selectedFile) return;
 
-    setImageUploading(true); // Start spinner
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: selectedFile,
-    }));
+    setImageUploading(true);
+    setUploadedImageUrl(null);
 
     const data = new FormData();
     data.append("image", selectedFile);
@@ -73,11 +72,12 @@ const AddPlants = () => {
       const result = await response.json();
       console.log("Image upload success:", result);
 
-      if (response.ok) {
+      if (response.ok && result.image?.path) {
         setFormData((prev) => ({
           ...prev,
           image: result.image.path,
         }));
+        setUploadedImageUrl(result.image.path);
       } else {
         alert("Image upload failed.");
       }
@@ -85,7 +85,7 @@ const AddPlants = () => {
       console.error("Upload error:", error);
       alert("Something went wrong during image upload.");
     } finally {
-      setImageUploading(false); // Stop spinner
+      setImageUploading(false);
     }
   };
 
@@ -123,7 +123,7 @@ const AddPlants = () => {
     <div className="flex h-screen">
       <LeftSidebar />
 
-      <div className="flex pt-10 pl-10 bg-[#181D14] w-[100%] h-screen">
+      <div className="flex pt-10 pl-10 bg-[#181D14] w-full h-screen">
         <div className="max-w-2xl rounded-xl shadow-md">
           <h2 className="text-2xl font-bold mb-6 text-white">Add New Plant</h2>
 
@@ -133,7 +133,6 @@ const AddPlants = () => {
           >
             {/* Left Column */}
             <div className="space-y-4">
-              {/* Plant Name */}
               <div>
                 <label className="block text-white mb-1">Plant Name</label>
                 <input
@@ -147,7 +146,6 @@ const AddPlants = () => {
                 />
               </div>
 
-              {/* Type */}
               <div>
                 <label className="block text-white mb-1">Type</label>
                 <input
@@ -160,7 +158,6 @@ const AddPlants = () => {
                 />
               </div>
 
-              {/* Category */}
               <div>
                 <label className="block text-white mb-1">Category</label>
                 <select
@@ -176,7 +173,6 @@ const AddPlants = () => {
                 </select>
               </div>
 
-              {/* Description */}
               <div>
                 <label className="block text-white mb-1">Description</label>
                 <textarea
@@ -192,7 +188,6 @@ const AddPlants = () => {
 
             {/* Right Column */}
             <div className="space-y-4">
-              {/* Price */}
               <div>
                 <label className="block text-white mb-2">Price</label>
                 <input
@@ -210,11 +205,23 @@ const AddPlants = () => {
               <div>
                 <label htmlFor="plantImage" className="block text-white mb-2">
                   Plant Image
-                  <img
-                    src={plantImage}
-                    alt="plantImage"
-                    className="rounded-2xl cursor-pointer w-16 h-16"
-                  />
+                  <div className="rounded-2xl cursor-pointer w-16 h-16 border border-gray-400 mt-1 flex items-center justify-center bg-[#232e24]">
+                    {imageUploading ? (
+                      <span className="animate-spin h-6 w-6 border-2 border-white border-t-transparent rounded-full inline-block" />
+                    ) : uploadedImageUrl ? (
+                      <img
+                        src={uploadedImageUrl}
+                        alt="Uploaded Preview"
+                        className="rounded-2xl w-16 h-16 object-cover"
+                      />
+                    ) : (
+                      <img
+                        src={plantImage}
+                        alt="plant placeholder"
+                        className="rounded-2xl w-16 h-16 object-cover"
+                      />
+                    )}
+                  </div>
                 </label>
                 <input
                   type="file"
@@ -224,17 +231,7 @@ const AddPlants = () => {
                   onChange={handleImageChange}
                   className="w-[350px] hidden"
                 />
-
-                {/* Uploading spinner */}
-                {imageUploading && (
-                  <div className="text-white mt-2 flex items-center space-x-2">
-                    <span className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full inline-block" />
-                    <span>Uploading image...</span>
-                  </div>
-                )}
               </div>
-
-              {/* Status */}
               <div>
                 <label className="block text-white mb-2">Status</label>
                 <select
@@ -248,7 +245,6 @@ const AddPlants = () => {
                 </select>
               </div>
 
-              {/* Submit */}
               <div className="pt-3">
                 <button
                   type="submit"
@@ -266,4 +262,3 @@ const AddPlants = () => {
 };
 
 export default AddPlants;
-
