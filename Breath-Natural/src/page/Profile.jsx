@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import LeftSidebar from "../components/LeftSidebar";
 
 const AddProfile = () => {
-  const [identifier, setIdentifier] = useState("");
+  const [email, setEmail] = useState("");
   const [user, setUser] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -14,26 +14,24 @@ const AddProfile = () => {
     setUser(null);
 
     try {
-      const isEmail = identifier.includes("@");
+      if (!email.includes("@")) {
+        throw new Error("Please enter a valid email address.");
+      }
 
-      const endpoint = isEmail
-        ? `https://eb-project-backend-production.up.railway.app/api/v0/user/getUserByEmail/${identifier}`
-        : `https://eb-project-backend-production.up.railway.app/api/v0/user/getSpecificUser/${identifier}`;
-
+      const endpoint = `https://eb-project-backend-kappa.vercel.app/api/v0/user/getSpecificUser/${email}`;
       const response = await fetch(endpoint, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
       });
-
       const data = await response.json();
 
-      if (!response.ok || !data.user) {
-        throw new Error(data.message || "User not found");
+      if (!response.ok) {
+        throw new Error(data.message || "User not found.");
       }
-
-      setUser(data.user);
+      console.log(data)
+      setUser(data.NewUser);
     } catch (err) {
       console.error("Error fetching user:", err);
       setError(err.message || "Failed to fetch user.");
@@ -51,12 +49,12 @@ const AddProfile = () => {
 
         <form onSubmit={handleSearch} className="mb-8 flex gap-4 items-end flex-wrap">
           <div>
-            <label className="block text-white mb-1">Enter User ID or Email</label>
+            <label className="block text-white mb-1">Enter User Email</label>
             <input
-              type="text"
-              value={identifier}
-              onChange={(e) => setIdentifier(e.target.value)}
-              placeholder="e.g., johndoe@example.com or 64f72e..."
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="e.g., johndoe@example.com"
               className="px-4 py-2 text-white w-80 bg-[#232e24] rounded-md focus:outline-none"
               required
             />
@@ -84,6 +82,19 @@ const AddProfile = () => {
               <p>
                 <strong>Joined:</strong> {new Date(user.createdAt).toLocaleDateString()}
               </p>
+            )}
+
+            {user.history && Array.isArray(user.history) && user.history.length > 0 && (
+              <div className="mt-6">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">User History</h3>
+                <ul className="list-disc list-inside text-gray-700">
+                  {user.history.map((item, index) => (
+                    <li key={index}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
           </div>
         )}

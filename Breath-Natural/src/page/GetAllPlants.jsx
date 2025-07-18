@@ -13,9 +13,10 @@ const AllPlants = () => {
   const fetchPlants = async () => {
     try {
       const response = await fetch(
-        "https://eb-project-backend-production.up.railway.app/api/v0/plants/getAll"
+        "https://sample-three-khaki.vercel.app/api/v0/plants/getAll"
       );
       const result = await response.json();
+      console.log(result)
       if (!response.ok) throw new Error(result.message || "Failed to fetch plants");
       setPlants(result.plants || []);
     } catch (err) {
@@ -34,7 +35,7 @@ const AllPlants = () => {
     if (!window.confirm("Are you sure you want to delete this plant?")) return;
     try {
       const response = await fetch(
-        `https://eb-project-backend-production.up.railway.app/api/v0/plants/delete/${id}`,
+        `https://sample-three-khaki.vercel.app/api/v0/plants/delete/${id}`,
         { method: "DELETE" }
       );
       const result = await response.json();
@@ -68,7 +69,7 @@ const AllPlants = () => {
   const handleSave = async () => {
     try {
       const response = await fetch(
-        `https://eb-project-backend-production.up.railway.app/api/v0/plants/update/${editId}`,
+        `https://sample-three-khaki.vercel.app/api/v0/plants/update/${editId}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

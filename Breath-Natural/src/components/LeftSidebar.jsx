@@ -39,8 +39,9 @@ const Sidebar = () => {
     navigate("/");                     // ✅ Navigate to login page
   };
 
+  
   return (
-    <div className="w-[20%] h-[100%] bg-[#242e24] text-white flex flex-col justify-between">
+    <div className="w-[20%] h-[100%] bg-[#242e24] text-white md:flex flex-col justify-between hidden">
       <div>
         <div className="p-6 font-bold text-xl">Breath Natural</div>
 
@@ -95,3 +96,5 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
+

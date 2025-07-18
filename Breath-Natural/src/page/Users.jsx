@@ -11,7 +11,7 @@ const Users = () => {
     const fetchUsers = async () => {
       try {
         const response = await fetch(
-          "https://eb-project-backend-production.up.railway.app/api/v0/user/getUserAll"
+          "https://sample-three-khaki.vercel.app/api/v0/user/getUserAll"
         );
         const data = await response.json();
         setUsers(data.users || []);

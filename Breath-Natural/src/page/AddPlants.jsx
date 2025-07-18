@@ -62,7 +62,7 @@ const AddPlants = () => {
 
     try {
       const response = await fetch(
-        "https://eb-project-backend-production.up.railway.app/api/v0/plants/upload-image",
+        "https://sample-three-khaki.vercel.app/api/v0/plants/upload-image",
         {
           method: "POST",
           body: data,
@@ -94,7 +94,7 @@ const AddPlants = () => {
     console.log(formData);
     try {
       const response = await fetch(
-        "https://eb-project-backend-production.up.railway.app/api/v0/plants/create ",
+        "https://sample-three-khaki.vercel.app/api/v0/plants/create",
         {
           method: "POST",
           headers: {
@@ -128,133 +128,134 @@ const AddPlants = () => {
           <h2 className="text-2xl font-bold mb-6 text-white">Add New Plant</h2>
 
           <form
-            onSubmit={handleSubmit}
-            className="grid grid-cols-1 md:grid-cols-2 gap-[500px]"
-          >
-            {/* Left Column */}
-            <div className="space-y-4">
-              <div>
-                <label className="block text-white mb-1">Plant Name</label>
-                <input
-                  type="text"
-                  name="plantname"
-                  value={formData.plantname}
-                  placeholder="Enter Plant Name"
-                  onChange={handleChange}
-                  className="w-[350px] bg-[#232e24] text-white px-6 py-2 rounded-lg focus:outline-none"
-                  required
-                />
-              </div>
+  onSubmit={handleSubmit}
+  className="grid grid-cols-1 md:grid-cols-2 gap-10"
+>
+  {/* Left Column */}
+  <div className="space-y-4">
+    <div>
+      <label className="block text-white mb-1">Plant Name</label>
+      <input
+        type="text"
+        name="plantname"
+        value={formData.plantname}
+        placeholder="Enter Plant Name"
+        onChange={handleChange}
+        className="w-full bg-[#232e24] text-white px-4 py-2 rounded-lg focus:outline-none"
+        required
+      />
+    </div>
 
-              <div>
-                <label className="block text-white mb-1">Type</label>
-                <input
-                  type="text"
-                  name="type"
-                  placeholder="Enter Type of Plant"
-                  value={formData.type}
-                  onChange={handleChange}
-                  className="w-[350px] px-4 text-white bg-[#232e24] py-2 rounded-lg focus:outline-none"
-                />
-              </div>
+    <div>
+      <label className="block text-white mb-1">Type</label>
+      <input
+        type="text"
+        name="type"
+        placeholder="Enter Type of Plant"
+        value={formData.type}
+        onChange={handleChange}
+        className="w-full px-4 text-white bg-[#232e24] py-2 rounded-lg focus:outline-none"
+      />
+    </div>
 
-              <div>
-                <label className="block text-white mb-1">Category</label>
-                <select
-                  name="category"
-                  value={formData.category}
-                  onChange={handleChange}
-                  className="w-[350px] text-white bg-[#232e24] px-4 py-2 rounded-lg focus:outline-none"
-                  required
-                >
-                  <option value="">Select Category</option>
-                  <option value="indoor">Indoor</option>
-                  <option value="outdoor">Outdoor</option>
-                </select>
-              </div>
+    <div>
+      <label className="block text-white mb-1">Category</label>
+      <select
+        name="category"
+        value={formData.category}
+        onChange={handleChange}
+        className="w-full text-white bg-[#232e24] px-4 py-2 rounded-lg focus:outline-none"
+        required
+      >
+        <option value="">Select Category</option>
+        <option value="indoor">Indoor</option>
+        <option value="outdoor">Outdoor</option>
+      </select>
+    </div>
 
-              <div>
-                <label className="block text-white mb-1">Description</label>
-                <textarea
-                  name="description"
-                  value={formData.description}
-                  placeholder="Enter Description"
-                  onChange={handleChange}
-                  rows={3}
-                  className="w-[350px] text-white px-4 py-2 bg-[#232e24] rounded-lg focus:outline-none"
-                />
-              </div>
-            </div>
+    <div>
+      <label className="block text-white mb-1">Description</label>
+      <textarea
+        name="description"
+        value={formData.description}
+        placeholder="Enter Description"
+        onChange={handleChange}
+        rows={3}
+        className="w-full text-white px-4 py-2 bg-[#232e24] rounded-lg focus:outline-none"
+      />
+    </div>
+  </div>
 
-            {/* Right Column */}
-            <div className="space-y-4">
-              <div>
-                <label className="block text-white mb-2">Price</label>
-                <input
-                  type="number"
-                  name="price"
-                  value={formData.price}
-                  placeholder="Enter Price"
-                  onChange={handleChange}
-                  className="w-[350px] bg-[#232e24] text-white px-4 py-2 rounded-lg focus:outline-none"
-                  required
-                />
-              </div>
+  {/* Right Column */}
+  <div className="space-y-4">
+    <div>
+      <label className="block text-white mb-2">Price</label>
+      <input
+        type="number"
+        name="price"
+        value={formData.price}
+        placeholder="Enter Price"
+        onChange={handleChange}
+        className="w-full bg-[#232e24] text-white px-4 py-2 rounded-lg focus:outline-none"
+        required
+      />
+    </div>
 
-              {/* Image Upload */}
-              <div>
-                <label htmlFor="plantImage" className="block text-white mb-2">
-                  Plant Image
-                  <div className="rounded-2xl cursor-pointer w-16 h-16 border border-gray-400 mt-1 flex items-center justify-center bg-[#232e24]">
-                    {imageUploading ? (
-                      <span className="animate-spin h-6 w-6 border-2 border-white border-t-transparent rounded-full inline-block" />
-                    ) : uploadedImageUrl ? (
-                      <img
-                        src={uploadedImageUrl}
-                        alt="Uploaded Preview"
-                        className="rounded-2xl w-16 h-16 object-cover"
-                      />
-                    ) : (
-                      <img
-                        src={plantImage}
-                        alt="plant placeholder"
-                        className="rounded-2xl w-16 h-16 object-cover"
-                      />
-                    )}
-                  </div>
-                </label>
-                <input
-                  type="file"
-                  name="image"
-                  id="plantImage"
-                  accept="image/*"
-                  onChange={handleImageChange}
-                  className="w-[350px] hidden"
-                />
-              </div>
-              <div>
-                <label className="block text-white mb-2">Status</label>
-                <select
-                  name="status"
-                  value={formData.status}
-                  onChange={handleChange}
-                  className="w-[350px] bg-[#232e24] text-white px-4 py-2 rounded-lg focus:outline-none"
-                >
-                  <option value="Available">Available</option>
-                  <option value="Not Available">Not Available</option>
-                </select>
-              </div>
+    {/* Image Upload */}
+    <div>
+      <label htmlFor="plantImage" className="block text-white mb-2">
+        Plant Image
+        <div className="rounded-2xl cursor-pointer w-20 h-20 border border-gray-400 mt-1 flex items-center justify-center bg-[#232e24]">
+          {imageUploading ? (
+            <span className="animate-spin h-6 w-6 border-2 border-white border-t-transparent rounded-full inline-block" />
+          ) : uploadedImageUrl ? (
+            <img
+              src={uploadedImageUrl}
+              alt="Uploaded Preview"
+              className="rounded-2xl w-20 h-20 object-cover"
+            />
+          ) : (
+            <img
+              src={plantImage}
+              alt="plant placeholder"
+              className="rounded-2xl w-20 h-20 object-cover"
+            />
+          )}
+        </div>
+      </label>
+      <input
+        type="file"
+        name="image"
+        id="plantImage"
+        accept="image/*"
+        onChange={handleImageChange}
+        className="hidden"
+      />
+    </div>
 
-              <div className="pt-3">
-                <button
-                  type="submit"
-                  className="w-[200px] bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-200"
-                >
-                  Add Plant
-                </button>
-              </div>
-            </div>
-          </form>
+    <div>
+      <label className="block text-white mb-2">Status</label>
+      <select
+        name="status"
+        value={formData.status}
+        onChange={handleChange}
+        className="w-full bg-[#232e24] text-white px-4 py-2 rounded-lg focus:outline-none"
+      >
+        <option value="Available">Available</option>
+        <option value="Not Available">Not Available</option>
+      </select>
+    </div>
+
+    <div className="pt-3">
+      <button
+        type="submit"
+        className="w-full md:w-[200px] bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-200"
+      >
+        Add Plant
+      </button>
+    </div>
+  </div>
+</form>
         </div>
       </div>
     </div>
@@ -262,3 +263,7 @@ const AddPlants = () => {
 };
 
 export default AddPlants;
+
+
+
+

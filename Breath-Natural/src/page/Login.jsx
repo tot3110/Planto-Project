@@ -30,7 +30,7 @@ const Login = () => {
 
   try {
     const response = await fetch(
-      "https://eb-project-backend-production.up.railway.app/api/v0/user/loginUser",
+      "https://sample-three-khaki.vercel.app/api/v0/user/loginUser",
       {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
